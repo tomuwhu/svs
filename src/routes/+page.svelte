@@ -1,5 +1,5 @@
 <script lang="ts">
-	var x: number = 8;
+	var x: number = 0;
 </script>
 
 <h1>
@@ -7,9 +7,9 @@
 </h1>
 
 <style lang="scss">
-	$number_norm: rgb(151, 67, 67);
+	$number_norm: rgb(45, 83, 101);
 	$number_hover: rgb(138, 90, 90);
-	$number_active: rgb(138, 136, 90);
+	$number_active: rgb(151, 67, 67);
 	h1 {
 		text-shadow: 1px 1px 3px black;
 		button {
