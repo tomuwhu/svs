@@ -7,19 +7,22 @@
 </h1>
 
 <style lang="scss">
+	$number_norm: rgb(151, 67, 67);
+	$number_hover: rgb(138, 90, 90);
+	$number_active: rgb(138, 136, 90);
 	h1 {
 		text-shadow: 1px 1px 3px black;
 		button {
 			all: unset;
 			display: inline-block;
-			color: rgb(151, 67, 67);
+			color: $number_norm;
 			cursor: pointer;
 		}
 		button:hover {
-			color: rgb(138, 90, 90);
+			color: $number_hover;
 		}
 		button:active {
-			color: rgb(138, 136, 90);
+			color: $number_active;
 		}
 	}
 </style>
