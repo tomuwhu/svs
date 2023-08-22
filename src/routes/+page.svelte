@@ -67,19 +67,37 @@
   <br />
   <br />
   <button on:click={logout}>Logout</button>
-{/if}
-{#if appdata.err}
+{:else}
   <span>{appdata.err}</span>
   <br />
 {/if}
 <span>{appdata.msg}</span>
 
 <style lang="scss">
+  $hover: rgb(143, 162, 175);
+  $active: rgb(169, 123, 106);
+  $bc: rgb(16, 49, 75);
+  button {
+    all: unset;
+    cursor: pointer;
+    border: solid 1px $bc;
+    padding: 6px;
+    box-shadow: 1px 1px 3px black;
+    color: $bc;
+    text-shadow: 1px 1px 3px gray;
+  }
+  button:hover {
+    background-color: $hover;
+  }
+  button:active {
+    background-color: $active;
+  }
   h1 {
     text-shadow: 1px 1px 3px black;
   }
   span {
     color: red;
+    font-size: 18px;
   }
   div {
     color: rgb(55, 70, 76);
