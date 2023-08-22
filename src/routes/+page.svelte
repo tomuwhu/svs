@@ -52,7 +52,9 @@
   }
 </script>
 
-<div class="menu"><a href="./reg/">regisztráció</a></div>
+<div class="menu">
+  {#if !loggedin}<a href="./reg/">regisztráció</a>{:else}<a href="./honlapok/">honlaplista</a>{/if}
+</div>
 <h1>SOB Intranet</h1>
 {#if !loggedin}
   <input type="text" placeholder="Felhasználónév" bind:value={un} />
