@@ -1,6 +1,6 @@
-# SVS Template:
+# SVS Template
 
-#### TypeScript - SCSS - Svelte - Static Page Template
+_TypeScript - SCSS - Svelte - Static Page Template_
 
 ## Clone
 
