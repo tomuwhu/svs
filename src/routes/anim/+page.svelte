@@ -5,7 +5,7 @@
 </script>
 
 <h1>Animáció példa</h1>
-<button style="left: {x}px" on:click={() => (vx = vx == 0 ? 0.3 : 0)} />
+<button style="left: {x}px;" on:click={() => (vx = vx == 0 ? 0.3 : 0)} />
 <input type="range" bind:value={vx} min={-5} max={5} step={0.1} />
 
 <style>
