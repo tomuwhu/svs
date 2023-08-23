@@ -9,7 +9,6 @@
     web: string,
     git: string,
     accept: boolean = false
-  import { onMount } from 'svelte'
   import axios from 'axios'
   import md5 from 'md5'
   function send(e: any) {

@@ -1,5 +1,27 @@
-<script>
+<script lang="ts">
   import { base } from '$app/paths'
+  import serverurl from './../serverurl.js'
+  import { onMount } from 'svelte'
+  import axios from 'axios'
+  var ServerURL: string = serverurl
+  interface Appdata {
+    un: string
+    name: string
+    web: string
+    mail: string
+    git: string
+    err: unknown
+  }
+  const appdata: Appdata = { un: '-', name: '...', web: '', mail: '', git: '', err: null }
+  onMount(async () => {
+    appdata.un = localStorage.getItem('un') || ''
+    try {
+      const res = await axios.get(ServerURL + '/')
+      console.log(res.data)
+    } catch (e: unknown) {
+      appdata.err = e
+    }
+  })
 </script>
 
 <div class="menu"><a href="{base}/">Vissza a főoldalra</a></div>
