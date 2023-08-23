@@ -1,10 +1,13 @@
 <script lang="ts">
-	var x: number = 0;
+	import { base } from '$app/paths'
+	var x: number = 0
 </script>
 
 <h1>
 	SVS <button on:click={() => x++}>{x}</button>
 </h1>
+<br />
+<a href="{base}/link">link</a>
 
 <style lang="scss">
 	$number_norm: rgb(45, 83, 101);
@@ -24,5 +27,9 @@
 		button:active {
 			color: $number_active;
 		}
+	}
+	a {
+		all: unset;
+		cursor: pointer;
 	}
 </style>
