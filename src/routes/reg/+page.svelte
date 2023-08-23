@@ -29,23 +29,25 @@
 <div class="menu"><a href="{base}/">belépés</a></div>
 <h1>SOB Intranet regisztráció</h1>
 {#if !accept}
-  <input type="text" placeholder="Felhasználónév" id="un" bind:value={un} />
-  <br /><br />
-  <input type="text" placeholder="Név" id="name" bind:value={name} />
-  <br /><br />
-  <input type="text" placeholder="Email-cím" id="mail" bind:value={mail} />
-  <br /><br />
-  <input type="text" placeholder="Weboldal" id="web" bind:value={web} />
-  <br /><br />
-  <input type="text" placeholder="Git" id="git" bind:value={git} />
-  <br /><br />
-  <input type="password" placeholder="Jelszó" id="pw" bind:value={pw} />
-  <br /><br />
-  {#if un && pw && name}
-    <button on:click={send}>Regisztrál</button>
-  {:else}
-    <div class="button">Beküld</div>
-  {/if}
+  <form class={un && name && mail && web && git && pw ? 'ok' : ''}>
+    <input type="text" placeholder="Felhasználónév" id="un" bind:value={un} />
+    <br /><br />
+    <input type="text" placeholder="Név" id="name" bind:value={name} />
+    <br /><br />
+    <input type="text" placeholder="Email-cím" id="mail" bind:value={mail} />
+    <br /><br />
+    <input type="text" placeholder="Weboldal" id="web" bind:value={web} />
+    <br /><br />
+    <input type="text" placeholder="Git" id="git" bind:value={git} />
+    <br /><br />
+    <input type="password" placeholder="Jelszó" id="pw" bind:value={pw} />
+    <br /><br />
+    {#if un && pw && name && web}
+      <button on:click={send}>Regisztrál</button>
+    {:else}
+      <div class="button">Beküld</div>
+    {/if}
+  </form>
 {:else}
   Sikeres regisztráció!
   <br />
@@ -56,7 +58,7 @@
 <style lang="scss">
   $hover: rgb(143, 162, 175);
   $active: rgb(169, 123, 106);
-  $bc: rgb(16, 49, 75);
+  $bc: rgb(28, 68, 99);
   button,
   .button,
   a {
@@ -67,6 +69,7 @@
     box-shadow: 1px 1px 3px black;
     color: $bc;
     text-shadow: 1px 1px 2px gray;
+    background-color: rgb(125, 162, 195);
   }
   .button {
     color: rgb(122, 122, 119);
@@ -111,5 +114,16 @@
     padding: 4px;
     background-color: rgb(226, 206, 206);
     box-shadow: 1px 1px 3px inset gray;
+  }
+  form {
+    display: inline-block;
+    padding: 20px;
+    border: solid;
+    border-radius: 20px;
+    box-shadow: 1px 1px 3px inset black;
+    background-color: rgb(213, 187, 169);
+  }
+  form.ok {
+    background-color: rgb(198, 213, 169);
   }
 </style>
