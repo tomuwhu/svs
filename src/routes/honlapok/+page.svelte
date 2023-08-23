@@ -27,7 +27,6 @@
 
 <div class="menu"><a href="{base}/">Vissza a főoldalra</a></div>
 <h1>Honlapok</h1>
-{base}
 {#each appdata as elem}
   <div class="e">
     {elem.name}
