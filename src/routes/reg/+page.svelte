@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { base } from '$app/paths'
   import serverurl from './../serverurl.js'
   var ServerURL: string = serverurl
   var un: string,
@@ -49,7 +50,7 @@
   Sikeres regisztráció!
   <br />
   <br />
-  <a href="./../">vissza a főoldalra</a>
+  <a href="{base}/">vissza a főoldalra</a>
 {/if}
 
 <style lang="scss">
@@ -101,5 +102,14 @@
   button:hover,
   a:active {
     background-color: $active;
+  }
+  input {
+    all: unset;
+    text-align: left;
+    width: 300px;
+    border-bottom: solid 5px rgb(141, 117, 117);
+    padding: 4px;
+    background-color: rgb(226, 206, 206);
+    box-shadow: 1px 1px 3px inset gray;
   }
 </style>

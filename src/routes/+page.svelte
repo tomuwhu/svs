@@ -132,4 +132,13 @@
   a:active {
     background-color: $active;
   }
+  input {
+    all: unset;
+    text-align: left;
+    width: 300px;
+    border-bottom: solid 5px rgb(141, 117, 117);
+    padding: 4px;
+    background-color: rgb(226, 206, 206);
+    box-shadow: 1px 1px 3px inset gray;
+  }
 </style>
