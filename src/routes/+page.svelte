@@ -54,7 +54,8 @@
 </script>
 
 <div class="menu">
-  {#if !loggedin}<a href="{base}/reg/">regisztráció</a>{:else}<a href="./honlapok/">honlaplista</a
+  {#if !loggedin}<a href="{base}/reg/">regisztráció</a>{:else}<a href="{base}/honlapok/"
+      >honlaplista</a
     >{/if}
 </div>
 <h1>SOB Intranet</h1>
