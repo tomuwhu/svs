@@ -64,11 +64,7 @@
   <br /><br />
   <input type="password" placeholder="Jelszó" bind:value={pw} />
   <br /><br />
-  {#if un && pw}
-    <button on:click={login}>Login</button>
-  {:else}
-    <div class="button">Beküld</div>
-  {/if}
+  <button on:click={login}>Login</button>
   <br /><br />
 {:else if !appdata.err}
   <div>{appdata.name}</div>
@@ -86,7 +82,6 @@
   $active: rgb(169, 123, 106);
   $bc: rgb(16, 49, 75);
   button,
-  .button,
   a {
     all: unset;
     cursor: pointer;
@@ -95,10 +90,6 @@
     box-shadow: 1px 1px 3px black;
     color: $bc;
     text-shadow: 1px 1px 2px gray;
-  }
-  .button {
-    color: rgb(122, 122, 119);
-    cursor: default;
   }
   h1 {
     text-shadow: 1px 1px 3px black;
