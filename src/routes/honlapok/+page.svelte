@@ -33,6 +33,7 @@
 {#each appdata as elem}
   <div class="e">
     {elem.name}
+    <hr />
     <a
       class="hl"
       href={elem.web.slice(0, 4) == 'http' ? elem.web : `http://${elem.web}`}
@@ -41,7 +42,7 @@
     <a
       class="g"
       href={elem.git.slice(0, 4) == 'http' ? elem.git : `http://${elem.git}`}
-      target="_blank">Git</a
+      target="_blank">&nbsp; &nbsp; Git &nbsp; &nbsp;</a
     >
   </div>
 {/each}
