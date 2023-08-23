@@ -1,7 +1,8 @@
-$bgcolor: rgb(219, 173, 173);
-$fgcolor: rgba(40, 40, 91, 0.798);
+$bgcolor: rgb(222, 190, 190);
+$fgcolor: rgba(34, 66, 88, 0.798);
 body {
   text-align: center;
   background-color: $bgcolor;
   color: $fgcolor;
+  margin: 0px
 }
