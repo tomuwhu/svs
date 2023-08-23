@@ -121,7 +121,7 @@
     border: solid;
     border-radius: 20px;
     box-shadow: 1px 1px 3px inset black;
-    background-color: rgb(213, 187, 169);
+    background-color: rgb(213, 176, 169);
   }
   form.ok {
     background-color: rgb(198, 213, 169);
