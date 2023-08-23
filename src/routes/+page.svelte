@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { base } from '$app/paths'
   import serverurl from './serverurl.js'
   var ServerURL: string = serverurl
   var un: string
@@ -53,7 +54,8 @@
 </script>
 
 <div class="menu">
-  {#if !loggedin}<a href="./reg/">regisztráció</a>{:else}<a href="./honlapok/">honlaplista</a>{/if}
+  {#if !loggedin}<a href="{base}/reg/">regisztráció</a>{:else}<a href="./honlapok/">honlaplista</a
+    >{/if}
 </div>
 <h1>SOB Intranet</h1>
 {#if !loggedin}

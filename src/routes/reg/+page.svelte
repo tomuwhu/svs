@@ -26,7 +26,7 @@
   }
 </script>
 
-<div class="menu"><a href="./../">belépés</a></div>
+<div class="menu"><a href="{base}/">belépés</a></div>
 <h1>SOB Intranet regisztráció</h1>
 {#if !accept}
   <input type="text" placeholder="Felhasználónév" id="un" bind:value={un} />
