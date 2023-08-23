@@ -5,6 +5,7 @@
 <div class="menu"><a href="{base}/">Vissza a főoldalra</a></div>
 {#if false}<button class="button" />{/if}
 <h1>Honlapok</h1>
+{base}
 
 <style lang="scss">
   $hover: rgb(143, 162, 175);
