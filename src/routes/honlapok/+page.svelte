@@ -20,9 +20,7 @@
       const res = await axios.get(ServerURL + 'req.php')
       appdata = res.data
     } catch (e: unknown) {
-      //
-    } finally {
-      //console.log(appdata)
+      console.log(e)
     }
   })
 </script>
