@@ -144,4 +144,9 @@
     background-color: rgb(226, 206, 206);
     box-shadow: 1px 1px 3px inset gray;
   }
+  @media (max-width: 400px) {
+    input {
+      width: 200px;
+    }
+  }
 </style>

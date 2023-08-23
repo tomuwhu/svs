@@ -126,4 +126,9 @@
   form.ok {
     background-color: rgb(198, 213, 169);
   }
+  @media (max-width: 320px) {
+    input {
+      width: 250px;
+    }
+  }
 </style>
