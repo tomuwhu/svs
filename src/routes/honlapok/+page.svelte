@@ -16,10 +16,12 @@
   onMount(async () => {
     appdata.un = localStorage.getItem('un') || ''
     try {
-      const res = await axios.get(ServerURL + '/')
+      const res = await axios.get(ServerURL + 'req.php')
       console.log(res.data)
     } catch (e: unknown) {
       appdata.err = e
+    } finally {
+      console.log(appdata)
     }
   })
 </script>
