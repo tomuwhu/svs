@@ -17,6 +17,7 @@
         .post(ServerURL + 'reg.php', { un, pw: md5(pw), name, mail, web, git })
         .then((res) => {
           if (res.data) {
+            console.log(res.data)
             localStorage.setItem('un', un)
             accept = true
           }
