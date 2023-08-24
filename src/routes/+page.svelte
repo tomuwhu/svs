@@ -13,7 +13,7 @@
 	<Space h={70} />
 	<Divider />
 	<Center>
-		<Button class="animation-bounce" on:click={() => x++}>{x}</Button>
+		<Button class="animation-bounce" on:click={() => x++}>Szám: {x}</Button>
 	</Center>
 	<Divider />
 	<Center>
