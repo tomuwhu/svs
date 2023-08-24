@@ -12,7 +12,7 @@
     $git = $inp->git;
     $pw = $inp->pw;
     if ($un and $pw and $name and $web) {
-        $mysqli = new mysqli("mysql-server-path/domain.hu","tnemeth","password","database-name");
+        $mysqli = new mysqli("mysql-server-path", "username", "password", "database-name");
         $mysqli -> set_charset("utf8");
         $query = "INSERT INTO sob_users VALUES('".$un."','".$pw."','".$name."','".$mail."','".$web."','".$git."')";
         $result = $mysqli->query($query);

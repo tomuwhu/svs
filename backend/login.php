@@ -11,7 +11,7 @@
     $pw = $inp->pw;
     session_id($un);
     session_start();
-    $mysqli = new mysqli("mysql-server-path/domain.hu","tnemeth","password","database-name");
+    $mysqli = new mysqli("mysql-server-path","username","password","database-name");
     $mysqli -> set_charset("utf8");
     $query = "  SELECT *    FROM    sob_users 
                             WHERE   un = '".$un."' 

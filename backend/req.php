@@ -1,7 +1,7 @@
 <?php
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Headers: *");
-    $mysqli = new mysqli("localhost","root","","test");
+$mysqli = new mysqli("mysql-server-path", "username", "password", "database-name");
     $mysqli -> set_charset("utf8");
     $sql = "SELECT * FROM sob_users";
     $line = [];
