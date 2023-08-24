@@ -13,7 +13,7 @@
 	<Space h={30} />
 	<Stack align="center">
 		<Button class="animation-bounce" on:click={() => x++}>Szám: {x}</Button>
-		<Button color="orange" href="{base}/link">Link</Button>
+		<Button variant="outline" color="orange" href="{base}/link">Link</Button>
 	</Stack>
 	<Space h={30} />
 {/if}

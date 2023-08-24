@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths'
-	import { Space, Center, Button, Title, Divider } from '@svelteuidev/core'
+	import { Center, Space, Button, Title, Divider } from '@svelteuidev/core'
 	import { onMount } from 'svelte'
 	var mounted = false
 	onMount(() => (mounted = true))
@@ -8,10 +8,8 @@
 
 {#if mounted}
 	<Space h={30} />
-	<Center>
-		<Title color="steelblue">A link mögött</Title>
-	</Center>
-	<Space h={70} />
+	<Title align="center" color="steelblue">A link mögött</Title>
+	<Space h={30} />
 	<Divider />
 	<Center>
 		<Button variant="outline" color="cyan" href="{base}/">Vissza</Button>
