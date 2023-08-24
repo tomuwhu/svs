@@ -26,8 +26,9 @@
     }
   })
   function login(e: any) {
-    try {
-      const res = axios.post(ServerURL + 'login.php', { un, pw: md5(pw) }).then((res) => {
+    axios
+      .post(ServerURL + 'login.php', { un, pw: md5(pw) })
+      .then((res) => {
         appdata.un = res.data.un
         if (appdata.un == null) {
           appdata.msg = 'Hibás felhasználónév vagy jelszó!'
@@ -36,9 +37,7 @@
         appdata.name = res.data.name
         localStorage.setItem('un', appdata.un)
       })
-    } catch (e: unknown) {
-      appdata.err = e
-    }
+      .catch((e: unknown) => (appdata.err = e))
   }
   function logout(e: any) {
     try {
