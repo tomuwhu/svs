@@ -40,15 +40,14 @@
       .catch((e: unknown) => (appdata.err = e))
   }
   function logout(e: any) {
-    try {
-      const res = axios.post(ServerURL + 'logout.php', appdata.un).then((res) => {
+    axios
+      .post(ServerURL + 'logout.php', appdata.un)
+      .then((res) => {
         appdata.un = ''
         appdata.name = '...'
         localStorage.removeItem('un')
       })
-    } catch (e: unknown) {
-      appdata.err = e
-    }
+      .catch((e: unknown) => (appdata.err = e))
   }
 </script>
 
