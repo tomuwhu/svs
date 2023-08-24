@@ -9,11 +9,11 @@
 
 {#if mounted}
 	<Space h={30} />
-	<Title align="center" color="brown">SvelteUi Base</Title>
+	<Title align="center">SvelteUi Base</Title>
 	<Space h={30} />
 	<Stack align="center">
 		<Button class="animation-bounce" on:click={() => x++}>Szám: {x}</Button>
-		<Button variant="light" color="orange" compact href="{base}/link">link</Button>
+		<Button color="orange" href="{base}/link">Link</Button>
 	</Stack>
 	<Space h={30} />
 {/if}

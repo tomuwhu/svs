@@ -9,7 +9,7 @@
 {#if mounted}
 	<Space h={30} />
 	<Center>
-		<Title color="darkblue">A link mögött</Title>
+		<Title color="steelblue">A link mögött</Title>
 	</Center>
 	<Space h={70} />
 	<Divider />
