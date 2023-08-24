@@ -1,6 +1,5 @@
 <script>
-  var x = 0,
-    vx = 0
+  var x = 0, vx = 0
   setInterval(() => (x += x >= -20 ? vx : 1), 10)
 </script>
 
