@@ -5,7 +5,7 @@ _TypeScript - SCSS - Svelte - Static Page Template_
 ## Clone
 
 ```bash
-git clone https://github.com/tomuwhu/svs your_repo_name
+git clone https://github.com/tomuwhu/svs/tree/svelteui your_repo_name
 cd your_repo_name
 npm i
 npm run dev
