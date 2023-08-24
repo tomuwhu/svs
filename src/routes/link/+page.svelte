@@ -8,7 +8,7 @@
 
 {#if mounted}
 <Center>
-  <Title>A link mögött</Title>
+  <Title color="darkblue">A link mögött</Title>
 </Center>
 <Divider />
 <Center>
