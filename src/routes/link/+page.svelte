@@ -1,14 +1,18 @@
 <script lang="ts">
-  import { base } from '$app/paths'
+	import { base } from '$app/paths'
+	import { Center, Button, Title, Divider } from '@svelteuidev/core'
+	import { onMount } from 'svelte'
+  var mounted = false
+  onMount(() => mounted = true)
 </script>
 
-<h1>Cica</h1>
-<br />
-<a href="{base}/">Vissza</a>
+{#if mounted}
+<Center>
+  <Title>A link mögött</Title>
+</Center>
+<Divider />
+<Center>
+  <Button variant="outline" color="cyan" href="{base}/">Vissza</Button>
+</Center>
+{/if}
 
-<style lang="scss">
-  a {
-    all: unset;
-    cursor: pointer;
-  }
-</style>
