@@ -54,7 +54,7 @@
 <div class="menu">
   {#if !loggedin}<a href="{base}/reg/">regisztráció</a>{:else}<a href="{base}/honlapok/"
       >Honlaplista</a
-    ><a href="{base}/stream/">Oktatási csatorna</a>{/if}
+    ><a href="{base}/stream/{appdata.name}">Oktatási csatorna</a>{/if}
 </div>
 <h1>SOB Intranet</h1>
 {#if !loggedin}

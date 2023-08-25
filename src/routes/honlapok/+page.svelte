@@ -3,7 +3,7 @@
   import serverurl from './../serverurl.js'
   import { onMount } from 'svelte'
   import axios from 'axios'
-  var mydata: { un: any } = { un: null }
+  var mydata: { un: any; name?: any } = { un: null }
   var ServerURL: string = serverurl
   interface Appdata {
     un: string
@@ -19,6 +19,9 @@
     try {
       const res = await axios.get(ServerURL + 'req.php')
       appdata = res.data
+      appdata.forEach((v) => {
+        if (v.un == mydata.un) mydata.name = v.name
+      })
     } catch (e: unknown) {
       console.log(e)
     }
@@ -26,7 +29,8 @@
 </script>
 
 <div class="menu">
-  <a href="{base}/stream/">Oktatási csatorna</a><a href="{base}/">Vissza a főoldalra</a>
+  <a href="{base}/stream/{mydata.name}">Oktatási csatorna</a><a href="{base}/">Vissza a főoldalra</a
+  >
 </div>
 <h1>Honlapok</h1>
 {#each appdata as elem}

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { base } from '$app/paths'
-  import serverurl from './../serverurl.js'
+  import serverurl from './../../serverurl.js'
   import { onMount } from 'svelte'
   import Md from 'markdown-it'
   import mathjax3 from 'markdown-it-mathjax3'
@@ -20,7 +20,6 @@
       eventSource.onmessage = (es) => {
         mydata.hl = JSON.parse(es.data)
       }
-      //mydata.msg = md.render('Math Rulez: $\\sqrt{3x-1}+(1+x)^2$')
     } catch (e: unknown) {
       console.log(e)
     }
@@ -37,10 +36,6 @@
     <code>{@html md.render(row.msg || 'Empty post')}</code>
   </div>
 {/each}
-<div class="code">
-  <div><span class="user">-</span><span class="ip">-</span></div>
-  <code>{@html md.render('```javascript\nvar a = 4;\n```')}</code>
-</div>
 
 <style lang="scss">
   $hover: rgb(143, 162, 175);
