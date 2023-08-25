@@ -25,7 +25,9 @@
   })
 </script>
 
-<div class="menu"><a href="{base}/">Vissza a főoldalra</a></div>
+<div class="menu">
+  <a href="{base}/stream/">Oktatási csatorna</a><a href="{base}/">Vissza a főoldalra</a>
+</div>
 <h1>Honlapok</h1>
 {#each appdata as elem}
   <div class="e">
