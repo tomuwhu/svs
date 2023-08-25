@@ -8,7 +8,6 @@
   import mathjax3 from 'markdown-it-mathjax3'
   import mhl from 'markdown-it-highlightjs'
   import axios from 'axios'
-  import { updated } from '$app/stores'
   var tzoffset = new Date().getTimezoneOffset() * 60000
   var localISOTime = new Date(Date.now() - tzoffset).toISOString().slice(0, -1)
   var most = localISOTime.split('.')[0].replace('T', ' ')
@@ -85,7 +84,7 @@
   <textarea bind:value={mydata.text} cols="30" rows="10" />
   <div class="ci">
     {#if mydata.text}
-      <button class="bk" on:click={rest.insert}>Beküld</button>
+      <button class="bk" on:click={() => rest.insert()}>Beküld</button>
     {/if}
     <span class="bk">&nbsp;</span>
     <span class="user">{@html data.name}</span>
