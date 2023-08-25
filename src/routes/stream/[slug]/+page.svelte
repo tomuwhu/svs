@@ -51,8 +51,8 @@
       console.log(e)
     }
   })
-  const rest: { insert: Function; update: Function } = {
-    insert() {
+  const rest: { insert(e: Event): Function; update(e: Event): Function } = {
+    insert(e: Event): any {
       axios
         .post(ServerURL + 'insert.php', mydata)
         .then((res: { data: {} }) => {
@@ -70,7 +70,7 @@
         })
         .catch((e: any) => {})
     },
-    update() {}
+    update(e: Event): any {}
   }
 </script>
 
@@ -82,7 +82,7 @@
   <textarea bind:value={mydata.text} cols="30" rows="10" />
   <div class="ci">
     {#if mydata.text}
-      <button class="bk" on:click={() => rest.insert()}>Beküld</button>
+      <button class="bk" on:click={rest.insert}>Beküld</button>
     {/if}
     <span class="bk">&nbsp;</span>
     <span class="user">{@html data.name}</span>
