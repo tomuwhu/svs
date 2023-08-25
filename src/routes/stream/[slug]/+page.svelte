@@ -65,8 +65,6 @@
               id: most,
               msg: mydata.text
             })
-            console.log(mydata.hl)
-
             mydata.text = ''
           }
         })
