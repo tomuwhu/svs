@@ -1,6 +1,6 @@
 <script lang="ts">
   /** @type {import('./$types').PageData} */
-  export let data:{name?: string}
+  export let data: { name?: string }
   import { base } from '$app/paths'
   import serverurl from './../../serverurl.js'
   import { onMount } from 'svelte'
@@ -12,7 +12,13 @@
   md.use(mhl, { auto: true })
   var mydata: {
     un?: any
-    hl: { id?: string | undefined; user?: string | undefined; msg?: string | undefined }[]
+    name?: string
+    hl: {
+      un?: string
+      id?: string | undefined
+      user?: string | undefined
+      msg?: string | undefined
+    }[]
   } = { hl: [] }
   var ServerURL: string = serverurl
   onMount(async () => {
@@ -21,6 +27,12 @@
       var eventSource = new EventSource(ServerURL + 'try.php')
       eventSource.onmessage = (es) => {
         mydata.hl = JSON.parse(es.data)
+        mydata.hl.forEach((v) => {
+          if (mydata.un == v.un) {
+            mydata.name = v.user
+            if (data.name != mydata.name) data.name = `<i>${mydata.name}</i>`
+          }
+        })
       }
     } catch (e: unknown) {
       console.log(e)
@@ -31,7 +43,7 @@
 <div class="menu">
   <a href="{base}/honlapok/">Honlaplista</a><a href="{base}/">Vissza a főoldalra</a>
 </div>
-<h6>{data.name}</h6>
+<h6>{@html data.name}</h6>
 <h1>Oktatási csatorna</h1>
 {#each mydata.hl as row}
   <div class="code">
