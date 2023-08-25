@@ -1,4 +1,6 @@
 <script lang="ts">
+  /** @type {import('./$types').PageData} */
+  export let data:{name?: string}
   import { base } from '$app/paths'
   import serverurl from './../../serverurl.js'
   import { onMount } from 'svelte'
@@ -29,6 +31,7 @@
 <div class="menu">
   <a href="{base}/honlapok/">Honlaplista</a><a href="{base}/">Vissza a főoldalra</a>
 </div>
+<h6>{data.name}</h6>
 <h1>Oktatási csatorna</h1>
 {#each mydata.hl as row}
   <div class="code">
