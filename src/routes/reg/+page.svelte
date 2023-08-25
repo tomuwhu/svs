@@ -12,17 +12,15 @@
   import axios from 'axios'
   import md5 from 'md5'
   function send(e: any) {
-    try {
-      const res = axios
-        .post(ServerURL + 'reg.php', { un, pw: md5(pw), name, mail, web, git })
-        .then((res) => {
-          if (res.data) {
-            console.log(res.data)
-            localStorage.setItem('un', un)
-            accept = true
-          }
-        })
-    } catch (e: unknown) {}
+    axios
+      .post(ServerURL + 'reg.php', { un, pw: md5(pw), name, mail, web, git })
+      .then((res: { data: {} }) => {
+        if (res.data) {
+          localStorage.setItem('un', un)
+          accept = true
+        }
+      })
+      .catch((e: any) => {})
   }
 </script>
 
