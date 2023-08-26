@@ -18,6 +18,7 @@
   md.use(mhl, { auto: true })
   var mydata: {
     un?: any
+    key?: any
     name?: string
     text?: string
     hl: {
@@ -53,7 +54,7 @@
       console.log(e)
     }
   })
-  const rest: { insert(e: Event): any; update(id: number): any } = {
+  const rest: { insert(e: Event): any; update(id: number, text: any): any } = {
     insert(e: Event): any {
       axios
         .post(ServerURL + 'insert.php', mydata)
@@ -72,8 +73,9 @@
         })
         .catch((e: any) => {})
     },
-    update(id: number): any {
-      console.log(id)
+    update(id: number, text: any): any {
+      mydata.text = text
+      mydata.key = id
     }
   }
 </script>
@@ -105,7 +107,9 @@
   <div class="code">
     <div class="ci">
       {#if row.user == mydata.name}
-        <button on:click={() => rest.update(row.key)}>Módosít</button>
+        <button class="bp" on:click={() => rest.update(row.key, row.msg)}>Bemásol</button>
+      {:else}
+        <button class="cp" on:click={() => rest.update(row.key, row.msg)}>Lemásol</button>
       {/if}
       <span class="user">{row.user}</span>
       <span class="ip"
@@ -262,5 +266,26 @@
   div.bottom {
     background-color: $bc;
     height: 4px;
+  }
+  button.bp {
+    background-color: rgb(38, 81, 81);
+  }
+  button.cp {
+    background-color: rgb(51, 14, 91);
+  }
+  button.bp:hover {
+    background-color: rgb(66, 121, 121);
+  }
+  button.cp:hover {
+    background-color: rgb(81, 41, 124);
+  }
+  button.bp:active {
+    background-color: rgb(103, 171, 171);
+  }
+  button.cp:active {
+    background-color: rgb(150, 107, 195);
+  }
+  div.zz code {
+    background-color: rgb(70, 17, 17);
   }
 </style>
