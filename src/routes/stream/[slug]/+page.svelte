@@ -11,6 +11,7 @@
   var tzoffset = new Date().getTimezoneOffset() * 60000
   var localISOTime = new Date(Date.now() - tzoffset).toISOString().slice(0, -1)
   var most = localISOTime.split('.')[0].replace('T', ' ')
+  var lastrefresh = most
   $: ma = most.split(' ')[0]
   const md = new Md()
   md.use(mathjax3)
@@ -20,7 +21,7 @@
     name?: string
     text?: string
     hl: {
-      currtime: any
+      key: number
       un: string
       name: string | undefined
       id: string
@@ -39,6 +40,7 @@
     try {
       var eventSource = new EventSource(ServerURL + 'try.php')
       eventSource.onmessage = (es) => {
+        lastrefresh = most
         mydata.hl = JSON.parse(es.data)
         mydata.hl.forEach((v) => {
           if (mydata.un == v.un) {
@@ -51,14 +53,14 @@
       console.log(e)
     }
   })
-  const rest: { insert(e: Event): Function; update(e: Event): Function } = {
+  const rest: { insert(e: Event): any; update(id: number): any } = {
     insert(e: Event): any {
       axios
         .post(ServerURL + 'insert.php', mydata)
         .then((res: { data: {} }) => {
           if (res.data) {
             mydata.hl.unshift({
-              currtime: most,
+              key: 0,
               un: mydata.un,
               name: mydata.name,
               user: mydata.name,
@@ -70,12 +72,16 @@
         })
         .catch((e: any) => {})
     },
-    update(e: Event): any {}
+    update(id: number): any {
+      console.log(id)
+    }
   }
 </script>
 
 <div class="menu">
-  <a href="{base}/honlapok/">Honlaplista</a><a href="{base}/">Vissza a főoldalra</a>
+  <span>{lastrefresh.split(' ')[1]}</span> <a href="{base}/honlapok/">Honlaplista</a><a
+    href="{base}/">Vissza a főoldalra</a
+  >
 </div>
 <h2>Oktatási csatorna</h2>
 <div class="code zz">
@@ -99,10 +105,12 @@
   <div class="code">
     <div class="ci">
       {#if row.user == mydata.name}
-        <button>Módosít</button>
+        <button on:click={() => rest.update(row.key)}>Módosít</button>
       {/if}
       <span class="user">{row.user}</span>
-      <span class="ip">{row.id.split(' ')[0] == ma ? row.id.split(' ')[1] : row.id}</span>
+      <span class="ip"
+        >{@html row.id.split(' ')[0] == ma ? row.id.split(' ')[1] : `<b>${row.id}</b`}</span
+      >
     </div>
     <div class="cc"><code>{@html md.render(row.msg || 'Empty post')}</code></div>
   </div>
@@ -144,6 +152,15 @@
       padding-right: 6px;
       margin-right: 10px;
       margin-bottom: 6px;
+    }
+    span {
+      font-size: 10px;
+      color: rgb(61, 95, 94);
+      user-select: none;
+      text-shadow: none;
+      width: 100px;
+      text-align: left;
+      display: inline-block;
     }
   }
   a:hover {
@@ -213,7 +230,7 @@
     font-family: monospace;
     color: rgb(10, 75, 10);
     width: 780px;
-    height: 120px;
+    height: 70px;
   }
   div.zz {
     background-color: antiquewhite;
